@@ -57,6 +57,7 @@
 			if(session.getAttribute("user") == null)
 			{ 
 		%>    
+			<h1>Login form</h1>	
 			<jsp:include page='partials/FormLogin.jsp' />
 		<% 
 			}else{
@@ -70,13 +71,26 @@
 	<hr/>
 	
 	<div class="container">
+		<h1>Registration form</h1>
 		<jsp:include page='partials/FormRegistration.jsp' />
 	</div>
 	
 	<hr/>
 	
-	<div class="container">
+	<div class="container">		
 		<h1>Settings form</h1>
+		<%
+			if(session.getAttribute("user") == null)
+			{ 
+		%>    
+			<span>Login first</span>
+		<% 
+			}else{
+		%>    
+			<jsp:include page='partials/FormSettings.jsp' />
+		<% 		
+			}
+		%>	
 	</div>
 	
 	<hr/>

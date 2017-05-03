@@ -39,4 +39,14 @@
    <servlet-name>UserRegistration</servlet-name>
    <url-pattern>/registration</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+   <servlet-name>UserSettings</servlet-name>
+   <servlet-class>ss.servlets.UserSettings</servlet-class>
+  </servlet>
+	
+  <servlet-mapping>
+   <servlet-name>UserSettings</servlet-name>
+   <url-pattern>/settings</url-pattern>
+  </servlet-mapping>
 </web-app>
