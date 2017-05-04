@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import org.postgresql.util.PSQLException;
-
 import ss.exceptions.DuplicateEmailException;
 import ss.exceptions.DuplicateUsernameException;
 import ss.models.User;

@@ -15,7 +15,7 @@ function addToCart(name, price){
 }
 
 function removeFromCart(id){
-	totalPrice -= shoppingCart[id];
+	totalPrice -= shoppingCart[id].Price;
     shoppingCart.splice(id, 1);
     
     updateCart();

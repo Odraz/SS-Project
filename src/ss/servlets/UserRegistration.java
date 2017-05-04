@@ -1,14 +1,10 @@
 package ss.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.postgresql.util.PSQLException;
 
 import ss.controllers.UserController;
 import ss.exceptions.DuplicateEmailException;
@@ -29,6 +25,7 @@ public class UserRegistration extends HttpServlet {
 			    request.getParameter("password")));
 		    if (user != null) {
 		        request.getSession().setAttribute("user", user);
+		        request.getSession().setAttribute("loginErrorMsg", null);
 		        request.getSession().setAttribute("registrationErrorMsg", null);
 		    } else {
 		    	request.getSession().setAttribute("registrationErrorMsg", "Something went wrong");
