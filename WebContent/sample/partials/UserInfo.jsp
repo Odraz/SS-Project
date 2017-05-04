@@ -4,6 +4,7 @@
 <h1>Welcome ${user.username}!</h1>	
 <ul>	    
 	<li>Username: ${user.username}</li>
+	<li>E-mail: ${user.email}</li>
 	<li>First name: ${user.firstname}</li>
 	<li>Last name: ${user.lastname}</li>
 	<li>Address: ${user.address}</li>

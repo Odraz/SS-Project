@@ -15,43 +15,31 @@
 	<div class="form-group">
 	  <label for="username" class="col-2 col-form-label">Username</label>
 	  <div class="col-10">
-	    <input class="form-control" type="text" id="username" name="username" value="${user.username}">
+	    <input class="form-control" type="text" id="username" value="${user.username}" readonly>
 	  </div>
 	</div>
 	<div class="form-group">
 	  <label for="email" class="col-2 col-form-label">Email</label>
 	  <div class="col-10">
-	    <input class="form-control" type="email" placeholder="mail@example.com" id="email" name="email" value="${user.email}">
+	    <input class="form-control" type="email" placeholder="mail@example.com" id="email" name="email" value="${user.email}" readonly>
 	  </div>
 	</div>		
 	<div class="form-group">
 	  <label for="firstname" class="col-2 col-form-label">First name</label>
 	  <div class="col-10">
-	    <input class="form-control" type="text" id="firstname" name="firstname" value="${user.firstname}">
+	    <input class="form-control" type="text" id="firstname" name="firstname" value="${user.firstname}" required>
 	  </div>
 	</div>
 	<div class="form-group">
 	  <label for="lastname" class="col-2 col-form-label">Last name</label>
 	  <div class="col-10">
-	    <input class="form-control" type="text" id="lastname" name="lastname" value="${user.lastname}">
+	    <input class="form-control" type="text" id="lastname" name="lastname" value="${user.lastname}" required>
 	  </div>
 	</div>
 	<div class="form-group">
 	  <label for="address" class="col-2 col-form-label">Address</label>
 	  <div class="col-10">
-	    <input class="form-control" type="text" id="address" name="address" value="${user.address}">
-	  </div>
-	</div>
-	<div class="form-group">
-	  <label for="newpassword" class="col-2 col-form-label">New password</label>
-	  <div class="col-10">
-	    <input class="form-control" type="password" id="newpassword" name="newpassword">
-	  </div>
-	</div>
-	<div class="form-group">
-	  <label for="oldpassword" class="col-2 col-form-label">Old password</label>
-	  <div class="col-10">
-	    <input class="form-control" type="password" id="oldpassword" name="oldpassword" required>
+	    <input class="form-control" type="text" id="address" name="address" value="${user.address}" required>
 	  </div>
 	</div>
 	<button class="btn btn-lg btn-primary btn-block" type="submit">Save changes</button>

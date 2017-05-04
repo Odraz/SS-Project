@@ -16,3 +16,12 @@ body {
 .footer .text-muted {
     margin: 20px 0;
 }
+
+.form-control[readonly]:focus{
+    border: 0px;
+}
+
+.form-control[readonly] {
+    background-color: #ccc;
+    border: 0px;
+}
