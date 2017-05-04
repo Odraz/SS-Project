@@ -14,8 +14,14 @@ public class ItemController extends Controller {
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e1) {
+			ArrayList<Item> items = new ArrayList<Item>();
+			
+			for(int i = 0; i < 4; i++){
+				items.add(new Item(i, "Test item " + i, "noimage.png",  100 * i, "Test description"));
+			}
+			
 			e1.printStackTrace();
-			return null;
+			return items;			
 		}
 	    
 	    try {
@@ -44,9 +50,5 @@ public class ItemController extends Controller {
 			
 			return null;
 		}		
-	}
-	
-	public static Item getItem(int id){
-		return null;
-	}
+	}	
 }
