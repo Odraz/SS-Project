@@ -4,6 +4,40 @@ body {
   padding-bottom: 20px;
 }
 
+
+.jumbotron {
+	background-image: url(file:///Users/amelieduc/Studium/SS-Project/WebContent/img/background.jpg);
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.row {
+	display: inline;
+	float: left;
+}
+
+.col-md-4 {
+	-webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+	align: center;
+	text-align: center;
+	float: left;
+}
+
+.skiimg {
+	max-width: 30%;
+	height: auto;
+	padding-bottom: 10px;
+	align: center; 	
+}
+
+.btn btn-default {
+	align: center;
+}
+
+
+
 /* FOOTER */
 
 .footer {

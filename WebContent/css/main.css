@@ -3,3 +3,29 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
 }
+
+
+.jumbotron {
+	background-image: url(file:///Users/amelieduc/Studium/SS-Project/WebContent/img/background.jpg);
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.col-md-3 {
+	align: center;
+	text-align: center;
+	float: left;
+}
+
+.skiimg {
+	max-width: 30%;
+	height: auto;
+	padding-bottom: 10px;
+	align: center; 	
+}
+
+.btn btn-default {
+	align: center;
+}
+
