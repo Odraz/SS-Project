@@ -6,7 +6,7 @@ body {
 
 
 .jumbotron {
-	background-image: url(file:///Users/amelieduc/Studium/SS-Project/WebContent/img/background.jpg);
+	background: url('../img/background.jpg');
 	background-size: 100%;
     background-repeat: no-repeat;
 }
