@@ -22,7 +22,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="shoppingcart" href="#">Shopping cart</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -44,6 +43,7 @@
       <div class="container">
         <h1 style="color:white;">COLOR SKI</h1>
         <p style="color:white;">This is the new shit!</p>
+        <p style="color:white;">Have a look</p>
       </div>
     </div>
 
@@ -51,28 +51,28 @@
       <div class="row">
       
         <div class="col-md-3">
-          <h2>PINK SKI</h2>
-          <img src="img/pink.JPG" class="skiimg">
-          <p>100€</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
-        </div>
-        <div class="col-md-3">
           <h2>BLUE SKI</h2>
           <img src="img/blue.JPG" class="skiimg">
-          <p>200€</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+          <p>100€</p>
+          <p><a class="btn btn-default" onclick="addToCart('BLUE SKI', '100')">Add to cart &raquo;</a></p>
         </div>
         <div class="col-md-3">
           <h2>YELLOW SKI</h2>
           <img src="img/yelloq.JPG" class="skiimg">
-          <p>300€</p>
-       	  <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+          <p>200€</p>
+       	  <p><a class="btn btn-default" onclick="addToCart('YELLOW SKI', '200')">Add to cart &raquo;</a></p>
         </div>
         <div class="col-md-3">
           <h2>BLACK SKI</h2>
           <img src="img/black.JPG" class="skiimg">
+          <p>300€</p>
+          <p><a class="btn btn-default" onclick="addToCart('BLACK SKI', '300')">Add to cart &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>PINK SKI</h2>
+          <img src="img/pink.JPG" class="skiimg">
           <p>400€</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+          <p><a class="btn btn-default" onclick="addToCart('PINK SKI', '400')">Add to cart &raquo;</a></p>
         </div>
         
       </div>
@@ -80,8 +80,14 @@
     
   
     <hr>
-    
-	
+    <div class="container">
+		<h1>Shopping cart</h1>
+		<div id="cart">
+			<ul id="cart-items"></ul>
+			<p>Total price: <span id="cart-total-price">0</span>€ <button class="btn btn-default">Buy</button></p>
+		</div>
+		<span id="cart-msg">Cart is empty</span>
+	</div>
 	<hr/>
 	
 	<div class="container">
@@ -90,8 +96,9 @@
       </footer>
     </div> <!-- /container -->
 
+	<script src="js/main.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
-    <script src="js/main.js"></script>
+    
 </body>
 </html>
