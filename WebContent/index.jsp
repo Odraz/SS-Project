@@ -24,43 +24,21 @@
           </button>
            <a class="navbar-brand" href="#shoppingcart">Shopping cart</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="login" method="post">
-            <div class="form-group">
-              <input type="email" placeholder="Email" class="form-control" name="email" required>
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password" required>
-            </div>
-			<%
-				if(session.getAttribute("loginErrorMsg") != null)
-				{ 
-			%>    
-				<div class="alert alert-warning">
-		  			<strong>Warning! </strong> ${loginErrorMsg}
-				</div>
-			<% 
-				}
-			%>	
-            <button type="submit" id="signin" class="btn btn-success">Sign in</button>
-            </form>
+        
+        
+        <%
+			if(session.getAttribute("user") == null)
+			{ 
+		%>    
+			<jsp:include page='partials/FormLogin.jsp' />
+		<% 
+			}else{
+		%>    
+			<jsp:include page='partials/UserInfo.jsp' />
+		<% 		
+			}
+		%>				
             
-            <button type="submit" id="signup" class="btn btn-success" href="#registration">Sign up</button>
-            <form action="../logout">
-            	<button type="submit" id="logout" class="btn btn-success">Log out</button>
-            </form>
-            <li class="dropdown" id="userinfo">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Info <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li>Username: ${user.username}</li>
-				<li>E-mail: ${user.email}</li>
-				<li>First name: ${user.firstname}</li>
-				<li>Last name: ${user.lastname}</li>
-				<li>Address: ${user.address}</li>
-				<li>Password: ${user.password}</li>
-	          </ul>
-	        </li>
-        </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
@@ -76,7 +54,7 @@
     
     <div class="container" id="registration">
 		<h1>Registration</h1>
-		<h2>Be a Color Ski member!</h2>
+		<h4>Be a Color Ski member!</h4>
 		<jsp:include page='partials/FormRegistration.jsp' />
 	</div>
 

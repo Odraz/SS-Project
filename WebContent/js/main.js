@@ -34,7 +34,7 @@ function updateCart(){
 	
 	var i = 0;
 	shoppingCart.forEach(function(item){
-		$("#cart-items").append("<li><p>" + item.Name + ": " + item.Price + "</p><button class=\"btn btn-default\"  onclick=\"removeFromCart(" + i + ")\">Remove from cart</button></li>");
+		$("#cart-items").append("<li><p>" + item.Name + ": " + item.Price + "€" + "<button class=\"btn btn-default\"  onclick=\"removeFromCart(" + i + ")\">Remove from cart</button></p></li>");
 		i++;
 	});	
 	

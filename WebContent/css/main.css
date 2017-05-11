@@ -29,27 +29,7 @@ body {
 	align: center;
 }
 
-#signin {
-	visibility: visible;
-}
-
-#signup {
-	visibility: visible;
-}
-
-#logout {
-	display: none;
-}
-
 #registration {
-	display: none;
-}
-
-#userinfo {
-	display: none;
-}
-
-#username {
 	display: none;
 }
 
