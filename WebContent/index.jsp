@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,14 +25,13 @@
            <a class="navbar-brand" href="#shoppingcart">Shopping cart</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" action="login" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="email" placeholder="Email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" class="form-control" name="password" required>
             </div>
-            <form action="../login" method="post">
 			<%
 				if(session.getAttribute("loginErrorMsg") != null)
 				{ 
@@ -45,6 +44,7 @@
 			%>	
             <button type="submit" id="signin" class="btn btn-success">Sign in</button>
             </form>
+            
             <button type="submit" id="signup" class="btn btn-success" href="#registration">Sign up</button>
             <form action="../logout">
             	<button type="submit" id="logout" class="btn btn-success">Log out</button>
@@ -60,7 +60,6 @@
 				<li>Password: ${user.password}</li>
 	          </ul>
 	        </li>
-          </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -70,7 +69,7 @@
       <div class="container">
         <h1 style="color:white;">COLOR SKI</h1>
         <p style="color:white;">This is the new shit!</p>
-        <p style="color:white;">Have a look</p> <p id="username" style="color:white;">${user.username}</p>
+        <p style="color:white;">Have a look</p>
       </div>
     </div>
 
