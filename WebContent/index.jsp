@@ -22,6 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+           <a class="navbar-brand" href="#shoppingcart">Shopping cart</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -31,8 +32,34 @@
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control">
             </div>
+            <form action="../login" method="post">
+			<%
+				if(session.getAttribute("loginErrorMsg") != null)
+				{ 
+			%>    
+				<div class="alert alert-warning">
+		  			<strong>Warning! </strong> ${loginErrorMsg}
+				</div>
+			<% 
+				}
+			%>	
             <button type="submit" id="signin" class="btn btn-success">Sign in</button>
-            <button type="submit" id="signup" class="btn btn-success">Sign up</button>
+            </form>
+            <button type="submit" id="signup" class="btn btn-success" href="#registration">Sign up</button>
+            <form action="../logout">
+            	<button type="submit" id="logout" class="btn btn-success">Log out</button>
+            </form>
+            <li class="dropdown" id="userinfo">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Info <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li>Username: ${user.username}</li>
+				<li>E-mail: ${user.email}</li>
+				<li>First name: ${user.firstname}</li>
+				<li>Last name: ${user.lastname}</li>
+				<li>Address: ${user.address}</li>
+				<li>Password: ${user.password}</li>
+	          </ul>
+	        </li>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -43,9 +70,16 @@
       <div class="container">
         <h1 style="color:white;">COLOR SKI</h1>
         <p style="color:white;">This is the new shit!</p>
-        <p style="color:white;">Have a look</p>
+        <p style="color:white;">Have a look</p> <p id="username" style="color:white;">${user.username}</p>
       </div>
     </div>
+
+    
+    <div class="container" id="registration">
+		<h1>Registration</h1>
+		<h2>Be a Color Ski member!</h2>
+		<jsp:include page='partials/FormRegistration.jsp' />
+	</div>
 
     <div class="container">
       <div class="row">
@@ -80,11 +114,11 @@
     
   
     <hr>
-    <div class="container">
+    <div class="container" id="shoppingcart">
 		<h1>Shopping cart</h1>
 		<div id="cart">
 			<ul id="cart-items"></ul>
-			<p>Total price: <span id="cart-total-price">0</span>€ <button class="btn btn-default">Buy</button></p>
+			<p>Total price: <span id="cart-total-price">0</span>€ <button class="btn btn-default <%if(session.getAttribute("user") == null){%>disabled<%}%>">Buy</button></p>
 		</div>
 		<span id="cart-msg">Cart is empty</span>
 	</div>

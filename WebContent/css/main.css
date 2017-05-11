@@ -6,7 +6,7 @@ body {
 
 
 .jumbotron {
-	background: url('../img/background.jpg');
+	background: url('../img/background.JPG');
 	background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -27,5 +27,29 @@ body {
 
 .btn btn-default {
 	align: center;
+}
+
+#signin {
+	visibility: visible;
+}
+
+#signup {
+	visibility: visible;
+}
+
+#logout {
+	display: none;
+}
+
+#registration {
+	display: none;
+}
+
+#userinfo {
+	display: none;
+}
+
+#username {
+	display: none;
 }
 
