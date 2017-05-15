@@ -30,6 +30,9 @@ body {
 }
 
 #registration {
-	display: none;
+	visibility: hidden;
 }
 
+#footer {
+	text-align: right;
+}

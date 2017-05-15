@@ -101,9 +101,10 @@
 	</div>
 	<hr/>
 	
-	<div class="container">
+	<div class="container" id="footer">
       <footer>
         <p>&copy; System Security Project 2017</p>
+        <p>Amelie Duchardt, Maren Haugland Hansen, Tomáš Pouzar</p>     
       </footer>
     </div> <!-- /container -->
 
