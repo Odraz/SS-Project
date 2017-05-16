@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-  <form action="../logout">
+  <form action="logout">
   				
             	<button type="submit" id="logout" class="btn btn-success">Log out</button>
             </form>

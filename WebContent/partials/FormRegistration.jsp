@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<form action="../registration" method="post">
+<form action="registration" method="post">
 	<%
 		if(session.getAttribute("registrationErrorMsg") != null)
 		{ 

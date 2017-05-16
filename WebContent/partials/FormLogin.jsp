@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-	<div class="navbar-form navbar-right">
-         <div id="navbar" class="navbar-collapse collapse">
+	
          
             <form action="login" method="post">
             <div class="form-group"  >
@@ -26,7 +25,4 @@
 				}
 			%>
 		
-         </div>
-          
-   </div><!--/.navbar-collapse -->
-   
+        

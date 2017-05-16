@@ -25,6 +25,8 @@
            <a class="navbar-brand" href="#shoppingcart">Shopping cart</a>
         </div>
         
+        <div class="navbar-form navbar-right">
+         <div id="navbar" class="navbar-collapse collapse">
         
         <%
 			if(session.getAttribute("user") == null)
@@ -37,7 +39,12 @@
 			<jsp:include page='partials/UserInfo.jsp' />
 		<% 		
 			}
-		%>				
+		%>	
+		
+		 </div>
+          
+   		</div><!--/.navbar-collapse -->
+   			
             
       </div>
     </nav>
