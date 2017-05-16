@@ -59,7 +59,7 @@
     </div>
 
     
-    <div class="container" id="registration">
+    <div class="container" id="registration" <%= (session.getAttribute("registrationErrorMsg") == null) ? "style='display: none'" : "" %>>
 		<h1>Registration</h1>
 		<h4>Be a Color Ski member!</h4>
 		<jsp:include page='partials/FormRegistration.jsp' />

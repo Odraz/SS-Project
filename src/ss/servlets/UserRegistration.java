@@ -27,15 +27,17 @@ public class UserRegistration extends HttpServlet {
 		        request.getSession().setAttribute("user", user);
 		        request.getSession().setAttribute("loginErrorMsg", null);
 		        request.getSession().setAttribute("registrationErrorMsg", null);
+		        response.sendRedirect("/SSProject");
 		    } else {
 		    	request.getSession().setAttribute("registrationErrorMsg", "Something went wrong");
+		    	response.sendRedirect(request.getHeader("Referer"));
 		    }
 		}catch(DuplicateUsernameException ex){
 			request.getSession().setAttribute("registrationErrorMsg", ex.getMessage());
+			response.sendRedirect(request.getHeader("Referer"));
 		}catch(DuplicateEmailException ex){
 			request.getSession().setAttribute("registrationErrorMsg", ex.getMessage());
-		}finally {
-	    	response.sendRedirect(request.getHeader("Referer"));
+			response.sendRedirect(request.getHeader("Referer"));
 		}
     } 
 }

@@ -41,6 +41,10 @@ function updateCart(){
 	$('#cart-total-price').html(totalPrice);	
 }
 
+$( "#signup" ).click(function() {
+    $( "#registration" ).toggle();
+});
+
 $(function() {	
 	updateCart();
 });

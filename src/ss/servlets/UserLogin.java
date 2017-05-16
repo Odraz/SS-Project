@@ -13,10 +13,10 @@ import ss.models.User;
 public class UserLogin extends HttpServlet {
 	 static final long serialVersionUID = 1L;
 	
-	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	 	
-	 	String email = request.getParameter("email");    
+	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	 		 		   
+    	String email = request.getParameter("email");    
 	    String password = request.getParameter("password");
-	    	    
+	    
 	    User user = UserController.loginUser(email, password);
 	    if (user != null) {
 	        request.getSession().setAttribute("user", user);
@@ -24,7 +24,7 @@ public class UserLogin extends HttpServlet {
 	    } else {
 	    	request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password.");	    	
 	    }
-	    
+		    
 	    response.sendRedirect(request.getHeader("Referer"));
     } 
 }
