@@ -1,0 +1,5 @@
+"C:\Program Files\Java\jdk1.8.0_121\bin\keytool" -v -importkeystore -srckeystore ssproject.p12 -srcstoretype pkcs12 -destkeystore ssproject.jks -deststoretype JKS
+
+"C:\Program Files\Java\jdk1.8.0_121\bin\keytool" -genkey -alias tomcat -keyalg RSA
+
+chrome://flags/#allow-insecure-localhost

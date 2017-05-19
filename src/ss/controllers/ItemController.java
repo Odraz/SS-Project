@@ -2,6 +2,7 @@ package ss.controllers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,10 +27,10 @@ public class ItemController extends Controller {
 	    
 	    try {
 		    Connection con = DriverManager.getConnection(dbname, "postgres", "postgres");
-			Statement st = con.createStatement();
-			String sql = "select * from \"ss-project\".\"items\"";
+		    PreparedStatement ps = con.prepareStatement("select * from \"ss-project\".\"items\"");
 			
-		    ResultSet rs = st.executeQuery(sql);
+		    ResultSet rs = ps.executeQuery();
+		    con.close();
 		    
 		    ArrayList<Item> items = new ArrayList<Item>();
 		    while(rs.next()){

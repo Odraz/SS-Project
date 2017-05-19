@@ -24,7 +24,9 @@ public class UserController extends Controller{
 		    Connection con = DriverManager.getConnection(dbname, "postgres", "postgres");
 		    PreparedStatement ps = con.prepareStatement
 	                  ("insert into \"ss-project\".\"users\" values(?,?,?,?,?,?)");
-
+		    
+		    user.setPassword(HashController.generateHash(user.getPassword()));
+		    
 	        ps.setString(1, user.getUsername());
 	        ps.setString(2, user.getEmail());
 	        ps.setString(3, user.getPassword());
@@ -32,8 +34,9 @@ public class UserController extends Controller{
 	        ps.setString(5, user.getLastname());
 	        ps.setString(6, user.getAddress());
 	        
-        	int i=ps.executeUpdate();
-	        
+        	int i = ps.executeUpdate();
+	        con.close();
+        	
 			if(i > 0) {
 				return user;
 			}else{
@@ -50,7 +53,7 @@ public class UserController extends Controller{
 			}
 			
 			return null;
-		}		
+		}
 	}
 	
 	public static User loginUser(String email, String password){
@@ -63,10 +66,13 @@ public class UserController extends Controller{
 	    
 	    try {
 		    Connection con = DriverManager.getConnection(dbname, "postgres", "postgres");
-			Statement st = con.createStatement();
-			String sql = "select * from \"ss-project\".\"users\" where email='" + email + "' and password='" + password + "'";
-			
-		    ResultSet rs = st.executeQuery(sql);
+		    PreparedStatement ps = con.prepareStatement("select * from \"ss-project\".\"users\" where email= ? and password = ?");
+		    
+		    ps.setString(1, email);
+	        ps.setString(2, HashController.generateHash(password));
+		    
+		    ResultSet rs = ps.executeQuery();
+		    con.close();
 		    
 		    if(rs.next()){
 		    	User user = new User(
@@ -108,8 +114,9 @@ public class UserController extends Controller{
 	        ps.setString(3, address);
 	        ps.setString(4, email);
 	        
-        	int i=ps.executeUpdate();
-	        
+        	int i = ps.executeUpdate();
+        	con.close();
+        	
 			if(i > 0) {
 				return getUser(email);
 			}else{
@@ -133,10 +140,12 @@ public class UserController extends Controller{
 	    
 	    try {
 		    Connection con = DriverManager.getConnection(dbname, "postgres", "postgres");
-			Statement st = con.createStatement();
-			String sql = "select * from \"ss-project\".\"users\" where email='" + email + "'";
+		    PreparedStatement ps = con.prepareStatement("select * from \"ss-project\".\"users\" where email = ?");
 			
-		    ResultSet rs = st.executeQuery(sql);
+		    ps.setString(1, email);
+		    
+		    ResultSet rs = ps.executeQuery();
+		    con.close();
 		    
 		    if(rs.next()){
 		    	User user = new User(

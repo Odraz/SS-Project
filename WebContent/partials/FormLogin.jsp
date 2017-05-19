@@ -11,7 +11,7 @@
 	               <input type="password" placeholder="Password" class="form-control" name="password" required>
 	            </div>
 	            <button type="submit" id="signin" class="btn btn-success">Sign in</button> 
-	            <button type="button" id="signup" class="btn btn-success" href="#registration">Sign up</button> 
+	            <button type="button" id="signup" class="btn btn-success" href="#registration" formnovalidate>Sign up</button> 
             </form>        
             
 			<%

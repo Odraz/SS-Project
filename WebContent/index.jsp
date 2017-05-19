@@ -102,7 +102,9 @@
 		<h1>Shopping cart</h1>
 		<div id="cart">
 			<ul id="cart-items"></ul>
-			<p>Total price: <span id="cart-total-price">0</span>€ <button class="btn btn-default <%if(session.getAttribute("user") == null){%>disabled<%}%>">Buy</button></p>
+			<p>Total price: <span id="cart-total-price">0</span>€
+				<button class="btn btn-default <%if(session.getAttribute("user") == null){%>disabled<%}%>" onclick="$.post('buy', { 'itemIds': totalPrice, 'userId': '${user.username}' })">Buy</button>
+			</p>
 		</div>
 		<span id="cart-msg">Cart is empty</span>
 	</div>

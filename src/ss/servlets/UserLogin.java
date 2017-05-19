@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ss.controllers.UserController;
+import ss.controllers.ValidationController;
 import ss.models.User;
 
 public class UserLogin extends HttpServlet {
@@ -16,6 +17,16 @@ public class UserLogin extends HttpServlet {
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	 		 		   
     	String email = request.getParameter("email");    
 	    String password = request.getParameter("password");
+	    
+	    if(!ValidationController.validateText(password)){
+	    	request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password.");	
+	    	response.sendRedirect(request.getHeader("Referer"));
+		}
+		
+		if(!ValidationController.validateEmail(email)){
+			request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password.");	
+	    	response.sendRedirect(request.getHeader("Referer"));
+		}
 	    
 	    User user = UserController.loginUser(email, password);
 	    if (user != null) {

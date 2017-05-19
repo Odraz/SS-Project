@@ -5,6 +5,16 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
+  <security-constraint>
+    <web-resource-collection>
+        <web-resource-name>SSProject</web-resource-name>
+        <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  
   <servlet>
    <servlet-name>UserLogin</servlet-name>
    <servlet-class>ss.servlets.UserLogin</servlet-class>
@@ -43,5 +53,15 @@
   <servlet-mapping>
    <servlet-name>UserSettings</servlet-name>
    <url-pattern>/settings</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   <servlet-name>ShopBuy</servlet-name>
+   <servlet-class>ss.servlets.ShopBuy</servlet-class>
+  </servlet>
+	
+  <servlet-mapping>
+   <servlet-name>ShopBuy</servlet-name>
+   <url-pattern>/buy</url-pattern>
   </servlet-mapping>
 </web-app>
