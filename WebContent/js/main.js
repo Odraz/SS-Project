@@ -41,6 +41,10 @@ function updateCart(){
 	$('#cart-total-price').html(totalPrice);	
 }
 
+function getCartItems(){	
+	return shoppingCart.map(function(item) {return item.Name;}).join();
+}
+
 $( "#signup" ).click(function() {
     $( "#registration" ).toggle();
 });

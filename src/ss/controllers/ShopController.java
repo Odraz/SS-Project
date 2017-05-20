@@ -19,13 +19,13 @@ public class ShopController extends Controller{
 	    try {
 	    	Connection con = DriverManager.getConnection(dbname, "postgres", "postgres");
 		    PreparedStatement ps = con.prepareStatement
-	                  ("insert into \"ss-project\".\"orders\" values(?,?,?,?)");
+	                  ("insert into \"ss-project\".\"orders\" (paid, datetime, itemids, userid) values(?,?,?,?)");
 		    
 		    java.util.Date utilDate = new Date();
 		    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		    
 	        ps.setBoolean(1, true);
-	        ps.setString(2, sqlDate.toString());
+	        ps.setDate(2, sqlDate);
 	        ps.setString(3, itemIds);
 	        ps.setString(4, userId);
 	        
