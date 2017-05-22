@@ -1,9 +1,10 @@
 var shoppingCart = [];
 var totalPrice = 0;
 
-function addToCart(name, price){
+function addToCart(id, name, price){
 	var item = {};
 
+	item.Id = id;
 	item.Name = name;
 	item.Price = price;
 	
@@ -42,7 +43,7 @@ function updateCart(){
 }
 
 function getCartItems(){	
-	return shoppingCart.map(function(item) {return item.Name;}).join();
+	return shoppingCart.map(function(item) {return item.Id;}).join();
 }
 
 $( "#signup" ).click(function() {

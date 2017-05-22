@@ -72,25 +72,25 @@
           <h2>BLUE SKI</h2>
           <img src="img/blue.JPG" class="skiimg">
           <p>100€</p>
-          <p><a class="btn btn-default" onclick="addToCart('BLUE SKI', 100)">Add to cart &raquo;</a></p>
+          <p><a class="btn btn-default" onclick="addToCart(0, 'BLUE SKI', 100)">Add to cart &raquo;</a></p>
         </div>
         <div class="col-md-3">
           <h2>YELLOW SKI</h2>
           <img src="img/yelloq.JPG" class="skiimg">
           <p>200€</p>
-       	  <p><a class="btn btn-default" onclick="addToCart('YELLOW SKI', 200)">Add to cart &raquo;</a></p>
+       	  <p><a class="btn btn-default" onclick="addToCart(1, 'YELLOW SKI', 200)">Add to cart &raquo;</a></p>
         </div>
         <div class="col-md-3">
           <h2>BLACK SKI</h2>
           <img src="img/black.JPG" class="skiimg">
           <p>300€</p>
-          <p><a class="btn btn-default" onclick="addToCart('BLACK SKI', 300)">Add to cart &raquo;</a></p>
+          <p><a class="btn btn-default" onclick="addToCart(2, 'BLACK SKI', 300)">Add to cart &raquo;</a></p>
         </div>
         <div class="col-md-3">
           <h2>PINK SKI</h2>
           <img src="img/pink.JPG" class="skiimg">
           <p>400€</p>
-          <p><a class="btn btn-default" onclick="addToCart('PINK SKI', 400)">Add to cart &raquo;</a></p>
+          <p><a class="btn btn-default" onclick="addToCart(3, 'PINK SKI', 400)">Add to cart &raquo;</a></p>
         </div>
         
       </div>
@@ -103,7 +103,7 @@
 		<div id="cart">
 			<ul id="cart-items"></ul>
 			<p>Total price: <span id="cart-total-price">0</span>€
-				<button class="btn btn-default <%if(session.getAttribute("user") == null){%>disabled<%}%>" onclick="$.post('buy', { 'itemIds': getCartItems(), 'userId': '${user.username}' })">Buy</button>
+				<button class="btn btn-default <%if(session.getAttribute("user") == null){%>disabled<%}%>" onclick="$.post('buy', { 'itemIds': getCartItems(), 'userId': '${user.username}' }).done(function( data ) {alert(data );})">Buy</button>
 			</p>
 		</div>
 		<span id="cart-msg">Cart is empty</span>
