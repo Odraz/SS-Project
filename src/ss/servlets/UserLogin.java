@@ -1,5 +1,6 @@
 package ss.servlets;
 
+import java.util.Date;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -17,6 +18,19 @@ public class UserLogin extends HttpServlet {
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	 		 		   
     	String email = request.getParameter("email");    
 	    String password = request.getParameter("password");
+	    request.getSession().setAttribute("loginErrorMsg", null);
+	    	    
+	    Date nextAttempt = new Date(request.getSession().getLastAccessedTime() + 60000);	  
+	    
+	    if((nextAttempt.before(new Date(System.currentTimeMillis()))) || (Integer)request.getSession().getAttribute("loginAttempts") == null){
+	    	request.getSession().setAttribute("loginAttempts", 0);
+	    }
+	    
+	    if((Integer)request.getSession().getAttribute("loginAttempts") > 4){
+	    	request.getSession().setAttribute("loginErrorMsg", "Too many attempts. Try later.");	
+	    	response.sendRedirect(request.getHeader("Referer"));
+	    	return;
+	    }
 	    
 	    if(!ValidationController.validateText(password)){
 	    	request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password.");	
@@ -32,10 +46,23 @@ public class UserLogin extends HttpServlet {
 	    if (user != null) {
 	        request.getSession().setAttribute("user", user);
 	        request.getSession().setAttribute("loginErrorMsg", null);
+	        request.getSession().setAttribute("loginAttempts", 1);
+	        
+	        response.sendRedirect(request.getHeader("Referer"));
 	    } else {
-	    	request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password.");	    	
+	    	request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password.");
+	    	
+	    	int attempts;
+	    	if(request.getSession().getAttribute("loginAttempts") == null){
+	    		attempts = 1;
+	    	}else{
+	    		attempts = (Integer)request.getSession().getAttribute("loginAttempts") + 1;
+	    	}
+	    	
+	    	request.getSession().setAttribute("loginAttempts", attempts++);
+	    	
+	    	response.sendRedirect(request.getHeader("Referer"));
 	    }
-		    
-	    response.sendRedirect(request.getHeader("Referer"));
+		    	    
     } 
 }
